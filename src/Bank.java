@@ -1,8 +1,9 @@
 public class Bank {
-    private int money = 10000;
+    private static int money = 10000;
 
+    /*
     public Bank() {
-        /*
+
         Thread client1 = new Client();
         Thread client2 = new Client();
         Thread client3 = new Client();
@@ -11,23 +12,24 @@ public class Bank {
         client2.start();
         client3.start();
 
-         */
+
 
         new Client(this, "Client1").start();
         new Client(this, "Client2").start();
         new Client(this, "Client3").start();
 
     }
+    */
 
     int getMoney() {
         return money;
     }
 
-    void take(int money) {
-        this.money -= money;
+    static synchronized void take(int money) {
+        Bank.money -= money;
     }
 
-    void repay(int money) {
-        this.money += money;
+    static synchronized void repay(int money) {
+        Bank.money += money;
     }
 }
