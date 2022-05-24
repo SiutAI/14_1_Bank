@@ -13,9 +13,9 @@ public class Bank {
 
          */
 
-        new Client(this).start();
-        new Client(this).start();
-        new Client(this).start();
+        new Client(this, "Client1").start();
+        new Client(this, "Client2").start();
+        new Client(this, "Client3").start();
 
     }
 
